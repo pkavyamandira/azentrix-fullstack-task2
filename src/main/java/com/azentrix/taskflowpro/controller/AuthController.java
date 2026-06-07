@@ -74,21 +74,23 @@ public class AuthController {
         User user = userService.findByEmail(email);
 
         if(user != null &&
-        		   user.getPassword().equals(password)) {
+           user.getPassword().equals(password)) {
 
-        		    session.setAttribute(
-        		            "loggedUser",
-        		            user);
+            session.setAttribute("loggedUser", user);
 
-        		    return "dashboard";
-        		}
+            if("ADMIN".equals(user.getRole())) {
+                return "dashboard";
+            } else {
+                return "dashboard";
+            }
+        }
 
-        model.addAttribute(
-                "msg",
-                "Invalid Email or Password");
-
+        model.addAttribute("msg", "Invalid Email or Password");
         return "login";
     }
+
+      
+    
     @GetMapping("/logout")
     public String logout(HttpSession session){
 
