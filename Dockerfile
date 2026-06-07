@@ -10,4 +10,4 @@ RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8081
 
-ENTRYPOINT ["java","-jar","target/taskflowpro-0.0.1-SNAPSHOT.war"]
+CMD sh -c "java -jar $(find target -name '*.war' | head -n 1)"
