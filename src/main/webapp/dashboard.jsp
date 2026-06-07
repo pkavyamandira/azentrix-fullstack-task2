@@ -139,7 +139,8 @@ Logout
 
 
 <p>Work together in real-time.</p>
-
+<h4>Logged User: <%= user.getEmail() %></h4>
+<h4>Role: <%= user.getRole() %></h4>
 </div>
 
 </div>
