@@ -2,8 +2,12 @@ FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
-COPY target/*.war app.war
+COPY . .
 
-EXPOSE 8080
+RUN chmod +x mvnw
 
-ENTRYPOINT ["java","-jar","app.war"]
+RUN ./mvnw clean package -DskipTests
+
+EXPOSE 8081
+
+ENTRYPOINT ["java","-jar","target/taskflowpro-0.0.1-SNAPSHOT.war"]
