@@ -168,17 +168,18 @@ ${board.boardName}
 
 <div class="col-md-6 mb-3">
 <label>Task Title</label>
-<input type="text"
-name="title"
-class="form-control"
-required>
-</div>
+<textarea name="description"
+          class="form-control"
+          required></textarea>
+</div><div class="col-md-6 mb-3">
 
-<div class="col-md-6 mb-3">
 <label>Assignee</label>
+
 <input type="text"
-name="assignee"
-class="form-control">
+       name="assignee"
+       class="form-control"
+       required>
+
 </div>
 
 <div class="col-md-12 mb-3">

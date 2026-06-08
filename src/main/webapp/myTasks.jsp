@@ -26,15 +26,26 @@ body{
 
 .task-card{
     background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.admin-title{
+    color:#2563eb;
+    font-size:42px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-left:6px solid #2563eb;
+    padding-left:15px;
+    margin-bottom:10px;
 }
 
 .page-title{
     color:#0f172a;
-    font-size:36px;
-    font-weight:bold;
+    font-size:38px;
+    font-weight:800;
     margin-bottom:10px;
 }
 
@@ -44,9 +55,9 @@ body{
     font-size:15px;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
+.table{
+    border-radius:12px;
+    overflow:hidden;
 }
 
 th{
@@ -57,7 +68,7 @@ th{
 
 td{
     padding:15px !important;
-    border-bottom:1px solid #e5e7eb;
+    vertical-align:middle;
 }
 
 tr:hover{
@@ -94,42 +105,33 @@ tr:hover{
 }
 
 .done{
+    display:inline-block;
     background:#22c55e;
     color:white;
-    padding:5px 12px;
+    padding:6px 14px;
     border-radius:20px;
-    font-size:13px;
+    font-size:12px;
+    font-weight:600;
 }
 
 .todo{
+    display:inline-block;
     background:#f59e0b;
     color:white;
-    padding:5px 12px;
+    padding:6px 14px;
     border-radius:20px;
-    font-size:13px;
+    font-size:12px;
+    font-weight:600;
 }
 
-.progress{
+.progress-status{
+    display:inline-block;
     background:#3b82f6;
     color:white;
-    padding:5px 12px;
+    padding:6px 14px;
     border-radius:20px;
-    font-size:13px;
-}
-
-.back-btn{
-    background:#2563eb;
-    color:white;
-    padding:10px 18px;
-    border-radius:8px;
-    text-decoration:none;
-    display:inline-block;
-    margin-bottom:20px;
-}
-
-.back-btn:hover{
-    color:white;
-    background:#1d4ed8;
+    font-size:12px;
+    font-weight:600;
 }
 
 </style>
@@ -142,22 +144,52 @@ tr:hover{
 
 <div class="task-card">
 
+<%
+com.azentrix.taskflowpro.entity.User user =
+(com.azentrix.taskflowpro.entity.User)
+session.getAttribute("loggedUser");
+%>
+
+<% if(user != null &&
+"ADMIN".equals(user.getRole())) { %>
+
+<h1 class="admin-title">
+📋 ALL TASKS
+</h1>
+
+<p class="subtitle">
+View and manage all tasks across the organization.
+</p>
+
+<div class="alert alert-primary">
+Total Tasks :
+<strong>${tasks.size()}</strong>
+</div>
+
+<% } else { %>
+
 <h1 class="page-title">
- My Assigned Tasks
+My Assigned Tasks
 </h1>
 
 <p class="subtitle">
 View and manage tasks assigned to you.
 </p>
 
+<div class="alert alert-info">
+My Assigned Tasks :
+<strong>${tasks.size()}</strong>
+</div>
 
+<% } %>
 
 <table class="table table-bordered">
 
 <thead>
 
 <tr>
-<th>Title</th>
+<th>Task Title</th>
+<th>Assignee</th>
 <th>Priority</th>
 <th>Status</th>
 <th>Action</th>
@@ -172,6 +204,8 @@ View and manage tasks assigned to you.
 <tr>
 
 <td>${task.title}</td>
+
+<td>${task.assignee}</td>
 
 <td>
 
@@ -202,7 +236,9 @@ View and manage tasks assigned to you.
 </c:when>
 
 <c:when test="${task.status=='IN_PROGRESS'}">
-<span class="progress">IN PROGRESS</span>
+<span class="progress-status">
+IN PROGRESS
+</span>
 </c:when>
 
 <c:otherwise>
@@ -218,9 +254,9 @@ View and manage tasks assigned to you.
 <c:if test="${task.status!='DONE'}">
 
 <a href="/completeTask/${task.id}"
-   class="complete-btn">
+class="complete-btn">
 
- Mark Complete
+Mark Complete
 
 </a>
 
@@ -231,9 +267,6 @@ View and manage tasks assigned to you.
 <span class="done">
 Completed
 </span>
-<a href="/dashboard" class="back-btn">
- Back to Dashboard
-</a>
 
 </c:if>
 
@@ -246,6 +279,17 @@ Completed
 </tbody>
 
 </table>
+
+<div class="mt-4 text-center">
+
+<a href="/dashboard"
+class="btn btn-primary px-4">
+
+Back To Dashboard
+
+</a>
+
+</div>
 
 </div>
 

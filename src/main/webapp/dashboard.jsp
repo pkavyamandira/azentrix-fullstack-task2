@@ -34,11 +34,11 @@ margin-bottom:30px;
 display:block;
 color:white;
 text-decoration:none;
-padding:10px;
-margin-bottom:10px;
+padding:12px 15px;
+margin:8px 0;
 border-radius:8px;
+font-size:16px;
 }
-
 .sidebar a:hover{
 background:#343a40;
 }
@@ -74,17 +74,21 @@ margin-bottom:20px;
 
 <% if(user != null &&
 "ADMIN".equals(user.getRole())) { %>
-<a href="/users"
-class="btn btn-dark">
-
-Manage Users
-
-</a>
+<a href="/users">Manage Users</a>
 <a href="/boards">Boards</a>
 
 <% } %>
 
-<a href="/myTasks">My Tasks</a>
+<% if(user != null &&
+"ADMIN".equals(user.getRole())) { %>
+
+<a href="/myTasks">All Tasks</a>
+
+<% } else { %>
+
+<a href="/myTasks">My Assigned Tasks</a>
+
+<% } %>
 
 <a href="/logout">
 Logout
@@ -151,9 +155,6 @@ Logout
 
 <div class="card card-box p-4">
 
-
-<div class="card card-box p-4">
-
 <h4>Quick Actions</h4>
 
 <% if(user != null &&
@@ -169,12 +170,31 @@ Open Boards
 
 <% } %>
 
+<% if(user != null &&
+"ADMIN".equals(user.getRole())) { %>
+
 <a href="/myTasks" class="btn btn-info m-1">
-My Tasks
+All Tasks
 </a>
 
+<% } else { %>
+
+<a href="/myTasks" class="btn btn-info m-1">
+My Assigned Tasks
+</a>
+
+<% } %>
 
 </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 
 </body>
 </html>

@@ -30,24 +30,22 @@ public class AuthController {
     public String registerPage() {
         return "register";
     }
+
     @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard";
-    }
     public String dashboard(HttpSession session) {
 
         User user =
                 (User) session.getAttribute("loggedUser");
 
         if(user == null) {
-            return "redirect:/";
+            return "redirect:/login";
         }
 
         if("ADMIN".equals(user.getRole())) {
-            return "adminDashboard";
+            return "dashboard";
         }
 
-        return "memberDashboard";
+        return "dashboard";
     }
 
     @PostMapping("/saveUser")
@@ -64,6 +62,7 @@ public class AuthController {
         model.addAttribute("msg", "Registration Successful");
         return "login";
     }
+
     @PostMapping("/loginUser")
     public String loginUser(
             @RequestParam String email,
@@ -78,19 +77,13 @@ public class AuthController {
 
             session.setAttribute("loggedUser", user);
 
-            if("ADMIN".equals(user.getRole())) {
-                return "dashboard";
-            } else {
-                return "dashboard";
-            }
+            return "redirect:/dashboard";
         }
 
         model.addAttribute("msg", "Invalid Email or Password");
         return "login";
     }
 
-      
-    
     @GetMapping("/logout")
     public String logout(HttpSession session){
 
@@ -98,5 +91,4 @@ public class AuthController {
 
         return "redirect:/";
     }
-   
 }
