@@ -154,7 +154,7 @@ session.getAttribute("loggedUser");
 "ADMIN".equals(user.getRole())) { %>
 
 <h1 class="admin-title">
-📋 ALL TASKS
+ ALL TASKS
 </h1>
 
 <p class="subtitle">
