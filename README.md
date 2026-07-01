@@ -1,16 +1,10 @@
 # TaskFlow Pro - Multi User Task Management System
 
-## GitHub Repository
-
-https://github.com/pkavyamandira/azentrix-fullstack-task2
-
----
-
 ## Overview
 
-TaskFlow Pro is a full-stack task management web application inspired by Trello. It enables teams to create project boards, assign tasks, track project progress using a Kanban workflow, and collaborate efficiently through role-based access control.
+TaskFlow Pro is a full-stack web application inspired by Trello that helps teams organize projects, assign tasks, and track project progress efficiently.
 
-The application provides separate functionalities for **Admin** and **Member** users while securely storing project data in a MySQL database.
+The application supports multiple users, board management, task assignment, Kanban workflow management, and role-based access control with separate Admin and Member functionalities.
 
 ---
 
@@ -33,8 +27,6 @@ The application provides separate functionalities for **Admin** and **Member** u
 
 ### Admin
 
-Administrators can:
-
 * Manage Users
 * Create and Manage Boards
 * Create and Assign Tasks
@@ -43,16 +35,14 @@ Administrators can:
 
 ### Member
 
-Members can:
-
-* View Only Their Assigned Tasks
+* View Assigned Tasks
 * Update Task Status
 * Mark Tasks as Completed
-* Track Their Assigned Work
+* Track Assigned Work
 
 ---
 
-## Technology Stack
+## Technologies Used
 
 ### Backend
 
@@ -64,29 +54,53 @@ Members can:
 ### Frontend
 
 * JSP
-* Bootstrap 5
 * HTML
 * CSS
+* Bootstrap 5
 * JavaScript
 
 ### Database
 
 * MySQL
 
-### Build Tool
+### Development Tools
 
+* Eclipse IDE
 * Maven
+* Git
+* GitHub
 
 ---
 
-## Prerequisites
+## Project Structure
 
-Before running the project, make sure you have:
-
-* Java 21 or above
-* MySQL Server
-* Maven
-* Eclipse IDE (or any Java IDE)
+```text
+taskflowpro
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── controller
+│   │   │   ├── entity
+│   │   │   ├── repository
+│   │   │   └── service
+│   │   ├── resources
+│   │   │   └── application.properties
+│   │   └── webapp
+│   │       ├── login.jsp
+│   │       ├── register.jsp
+│   │       ├── dashboard.jsp
+│   │       ├── boards.jsp
+│   │       ├── tasks.jsp
+│   │       ├── kanban.jsp
+│   │       ├── myTasks.jsp
+│   │       └── users.jsp
+│   └── test
+│
+├── screenshots
+├── pom.xml
+└── README.md
+```
 
 ---
 
@@ -98,7 +112,7 @@ Before running the project, make sure you have:
 git clone https://github.com/pkavyamandira/azentrix-fullstack-task2.git
 ```
 
-### 2. Create the Database
+### 2. Create a MySQL Database
 
 ```sql
 CREATE DATABASE taskflow;
@@ -106,7 +120,7 @@ CREATE DATABASE taskflow;
 
 ### 3. Configure Database Credentials
 
-Update the following file:
+Update the database credentials in:
 
 ```text
 src/main/resources/application.properties
@@ -122,9 +136,13 @@ spring.datasource.password=your_password
 
 ### 4. Run the Application
 
-Run the Spring Boot application from Eclipse or your preferred IDE.
+Run the Spring Boot application by executing:
 
-Open:
+```text
+TaskflowproApplication.java
+```
+
+### 5. Open the Application
 
 ```text
 http://localhost:8081
@@ -132,38 +150,66 @@ http://localhost:8081
 
 ---
 
-## Project Structure
-
-* Controllers
-* Services
-* Repositories
-* Entities
-* JSP Views
-
----
-
 ## Screenshots
 
-The **screenshots** folder contains:
+### Login Page
 
-* Login Page
-* Registration Page
-* Admin Dashboard
-* Manage Users
-* Boards Management
-* Create Task
-* Kanban Board
-* Admin – All Tasks
-* Member Dashboard
-* Member Assigned Tasks
+![Login](Screenshots/login.jpg)
+
+### Registration Page
+
+![Register](Screenshots/register.jpg)
+
+### Admin Dashboard
+
+![Admin Dashboard](Screenshots/Admin_Dashboard.jpg)
+
+### Manage Users
+
+![Manage Users](Screenshots/admin-manageusers.jpg)
+
+### Boards Management
+
+![Boards](Screenshots/admin-boards.jpg)
+
+### Create Task
+
+![Create Task](Screenshots/admin-createtask.jpg)
+
+### Kanban Board
+
+![Kanban Board](Screenshots/kanban-board.jpg)
+
+### Admin - All Tasks
+
+![Admin All Tasks](Screenshots/Admin-alltasks.jpg)
+
+### Member Dashboard
+
+![Member Dashboard](Screenshots/member_dashboard.jpg)
+
+### Member Assigned Tasks
+
+![Member Assigned Tasks](Screenshots/member-assign tasks.jpg)
 
 ---
 
 ## Demo Video
 
-Loom Recording:
+Loom Recording
 
 https://www.loom.com/share/cdc599cf889d4746a735232dd20d67d9
+
+---
+
+## Future Enhancements
+
+* JWT Authentication
+* Email Notifications
+* File Attachments
+* Activity Logs
+* Team Analytics Dashboard
+* WebSocket-Based Real-Time Collaboration
 
 ---
 
@@ -171,6 +217,6 @@ https://www.loom.com/share/cdc599cf889d4746a735232dd20d67d9
 
 **Kavya Mandira Pendyala**
 
-B.Tech – Computer Science and Engineering 
+B.Tech, Computer Science and Engineering (Cyber Security)
 
-KL University
+GitHub: https://github.com/pkavyamandira
