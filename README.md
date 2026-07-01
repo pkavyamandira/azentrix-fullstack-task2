@@ -171,6 +171,6 @@ https://www.loom.com/share/cdc599cf889d4746a735232dd20d67d9
 
 **Kavya Mandira Pendyala**
 
-B.Tech – Computer Science and Engineering (Cyber Security)
+B.Tech – Computer Science and Engineering 
 
 KL University
