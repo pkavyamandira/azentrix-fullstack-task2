@@ -87,11 +87,7 @@
         <optional>true</optional>
     </dependency>
 
-    <dependency>
-    	<groupId>com.kavya</groupId>
-    	<artifactId>budgettracker</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
+    
 	</dependencies>
 
 	<build>
