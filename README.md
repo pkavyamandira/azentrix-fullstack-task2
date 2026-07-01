@@ -149,16 +149,25 @@ http://localhost:8081
 ```
 
 ---
-### Demo Credentials
-Admin
-Email: hradmin@gmail.com
-Password: Admin@123
+## Demo Credentials
 
-Member
-Email: suresh@gmail.com
-Password: Suresh@123
+###  Admin
 
-New users registered through the application are assigned the MEMBER role by default. Use the above Admin credentials to explore administrative features such as user management, board management, and task assignment.
+**Email:** `hradmin@gmail.com`
+
+**Password:** `Admin@123`
+
+---
+
+###  Member
+
+**Email:** `suresh@gmail.com`
+
+**Password:** `Suresh@123`
+
+---
+
+> **Note:** Newly registered users are assigned the **MEMBER** role by default. Use the Admin credentials above to access features such as **Manage Users**, **Board Management**, **Task Assignment**, and **All Tasks**.
 
 ## Screenshots
 
