@@ -1,10 +1,16 @@
 # TaskFlow Pro - Multi User Task Management System
 
+## GitHub Repository
+
+https://github.com/pkavyamandira/azentrix-fullstack-task2
+
+---
+
 ## Overview
 
-TaskFlow Pro is a full-stack web application inspired by Trello that helps teams organize projects, assign tasks, and track progress efficiently.
+TaskFlow Pro is a full-stack task management web application inspired by Trello. It enables teams to create project boards, assign tasks, track project progress using a Kanban workflow, and collaborate efficiently through role-based access control.
 
-The system supports multiple users, board management, task assignment, Kanban workflow management, and role-based access control.
+The application provides separate functionalities for **Admin** and **Member** users while securely storing project data in a MySQL database.
 
 ---
 
@@ -27,7 +33,7 @@ The system supports multiple users, board management, task assignment, Kanban wo
 
 ### Admin
 
-Admins have full access to the system and can:
+Administrators can:
 
 * Manage Users
 * Create and Manage Boards
@@ -39,7 +45,7 @@ Admins have full access to the system and can:
 
 Members can:
 
-* View Assigned Tasks
+* View Only Their Assigned Tasks
 * Update Task Status
 * Mark Tasks as Completed
 * Track Their Assigned Work
@@ -73,23 +79,34 @@ Members can:
 
 ---
 
+## Prerequisites
+
+Before running the project, make sure you have:
+
+* Java 21 or above
+* MySQL Server
+* Maven
+* Eclipse IDE (or any Java IDE)
+
+---
+
 ## Setup Instructions
 
-### 1. Clone Repository
+### 1. Clone the Repository
 
 ```bash
-git clone <[repository-url](https://github.com/pkavyamandira/azentrix-fullstack-task2.git)>
+git clone https://github.com/pkavyamandira/azentrix-fullstack-task2.git
 ```
 
-### 2. Create Database
+### 2. Create the Database
 
 ```sql
 CREATE DATABASE taskflow;
 ```
 
-### 3. Configure Database
+### 3. Configure Database Credentials
 
-Update database credentials in:
+Update the following file:
 
 ```text
 src/main/resources/application.properties
@@ -103,9 +120,11 @@ spring.datasource.username=root
 spring.datasource.password=your_password
 ```
 
-### 4. Run Application
+### 4. Run the Application
 
-Start the Spring Boot application and open:
+Run the Spring Boot application from Eclipse or your preferred IDE.
+
+Open:
 
 ```text
 http://localhost:8081
@@ -125,9 +144,7 @@ http://localhost:8081
 
 ## Screenshots
 
-The project screenshots are available in the **screenshots** folder.
-
-Included Screenshots:
+The **screenshots** folder contains:
 
 * Login Page
 * Registration Page
@@ -136,7 +153,7 @@ Included Screenshots:
 * Boards Management
 * Create Task
 * Kanban Board
-* Admin - All Tasks
+* Admin – All Tasks
 * Member Dashboard
 * Member Assigned Tasks
 
@@ -153,3 +170,7 @@ https://www.loom.com/share/cdc599cf889d4746a735232dd20d67d9
 ## Author
 
 **Kavya Mandira Pendyala**
+
+B.Tech – Computer Science and Engineering (Cyber Security)
+
+KL University
